@@ -40,11 +40,6 @@
                 <div class="md-form">
                     {{ form.file }}
                 </div>
-
-                <label>Tipo de perfil</label>
-                    <div class="md-form">
-                        {{form.usuario_perfil(class_='form-control', id='perfil-input')}}
-                    </div>
         
                 <button type="submit" class="btn btn-success">Salvar</button> 
                 <a href="{{url_for('usuario_listar')}}">

@@ -29,8 +29,7 @@ class UsuarioInterface:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"])
+                email=u["usuario_email"])
             usuarios.append(usuario)
         return usuarios
 
@@ -44,8 +43,7 @@ class UsuarioInterface:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"])
+                email=u["usuario_email"])
             usuarios.append(usuario)
         return usuarios
 
@@ -66,8 +64,7 @@ class UsuarioInterface:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"])
+                email=u["usuario_email"])
             usuarios.append(usuario)
         return usuarios[0]
 
@@ -82,7 +79,6 @@ class UsuarioInterface:
                 login=d["usuario_login"],
                 senha=d["usuario_senha"],
                 logado=d["usuario_logado"],
-                email=d["usuario_email"],
-               status=d["usuario_status"])
+                email=d["usuario_email"])
             usuarios.append(usuario)
         return usuarios[0]
