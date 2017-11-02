@@ -18,7 +18,7 @@
 
                 <!-- Triângulo -->
                 <div id="triangulo">
-                    <svg height="100" width="40" fill="#22c595">
+                    <svg height="100" width="40" fill="#54D182">
                         <path d="M0 0 L40 50 L0 100 z"/>
                     </svg>
                 </div>
@@ -41,28 +41,35 @@
                         {% endif %}
                         {% endwith %}
                     </div>
-                    
-                    <div class="card uea-light mt-4 mt-md-0">
+
+                    <div class="card mt-4 mt-md-0">
                         <div class="card-body">
-                            <h2 class="card-title white-fg">Login</h2>
+                            <h2 class="card-title">Acessar Sistema UEA</h2>
 
                             <form class="form" action="{{url_for('login')}}" method="post">
                                 <!-- Necessário para funcionamento do CSRF -->
                                 {{form.hidden_tag()}}
-                                
-                                <label class="white-fg" for="email-input">Nome de Usuário</label>
+
                                 <div class="md-form">
-                                    {{form.login(class_='white-bg', id='email-input')}}
+                                    {{form.login(class_='form-control', id='email-input')}}
+                                    <label class="" for="email-input">Nome de Usuário</label>
                                 </div>
-                                
-                                <label class="white-fg" for="password-input">Senha</label>
+
                                 <div class="md-form mb-3">
-                                    {{form.senha(class_='white-bg', id='password-input')}}
+                                    {{form.senha(class_='form-control', id='password-input')}}
+                                    <label class="" for="password-input">Senha</label>
                                 </div>
-                                <button class="btn btn-success" id="wrapper" type="submit">LOGIN</button>
-								<a href="{{url_for('usuario_cadastrar')}}" id="wrapper" class="btn btn-cadastrar" >Cadastre-se</a>
+
+                                <div class="text-center">
+                                    <button id="login-button" class="btn uea-light zelda-btn-round" type="submit">LOGIN</button>
+                                </div>
                             </form>
-								
+                        </div>
+                        <div class="card-footer">
+                            <div class="text-center mb-1">
+                                Não tem uma conta? 
+                                <a href="#" data-toggle="modal" data-target="#modalRegisterForm">Cadastre-se!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,7 +79,45 @@
 </div>
 
 
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-bold">Cadastro</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="form_signup" action="{{url_for('cadastrar')}}">
+                <div class="modal-body mx-3">
+                    {{form_signup.hidden_tag()}}
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        {{form_signup.signup_login(class_='form-group')}}
+                        {{form_signup.signup_login.label}}
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        {{form_signup.signup_email(class_='form-group')}}
+                        {{form_signup.signup_email.label}}
+                    </div>
 
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        {{form_signup.signup_senha(class_='form-group')}}
+                        {{form_signup.signup_senha.label}}
+
+                    </div>
+                </div>
+
+                <div class="modal-footer d-flex justify-content-center">
+                  <a href="http://127.0.0.1:5000/cadastrar">  <button class="btn uea-light" type="submit">Cadastrar</button></a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div id="footer" class="uea-dark">
     <div class="container">
@@ -88,8 +133,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
-        $('#form_signup').on("submit", function(event){ 
-            
+        $('#form_signup').on("submit", function(event){
+
             $.post( $('#form_signup').attr('action'),
                     $('#form_signup').serialize(),
                     function(data) {

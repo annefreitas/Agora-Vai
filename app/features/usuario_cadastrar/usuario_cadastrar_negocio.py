@@ -3,7 +3,7 @@ from .usuario_cadastrar_form import CadastrarUsuarioForm
 from ...utils.flash_errors import flash_errors
 from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
-from ...cursor import db
+from ...utils.zelda_modelo import ZeldaModelo
 import os
 
 from werkzeug import secure_filename
@@ -20,31 +20,31 @@ class UsuarioCadastrarNegocio:
 
         form = CadastrarUsuarioForm()
         
-       
-
-
-        
         if form.validate_on_submit():
-            usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''))
+            usuario = Usuario()
 
-            db.cadastra_usuario(usuario)
+            usuario.login = form.usuario_login.data
+            usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
             
+            caminho_foto = None
             if form.file.data is not None:
+                usuario.salva()
                 filename = secure_filename(form.file.data.filename)
 
                 if allowed_file(filename):
-                    path = os.path.abspath(os.path.join(app.config['USUARIOS_UPLOAD_PATH'], str(user_id) + '.' + filename.rsplit('.',1)[1]))
+                    usuario.caminho_foto = str(usuario.get_id()) + '.' + filename.rsplit('.',1)[1]
+                    path = os.path.abspath(os.path.join(app.config['USUARIOS_UPLOAD_PATH'], usuario.caminho_foto))
+                    
                     form.file.data.save(path)
-                    return redirect(url_for('usuario_listar'))
                 else:
                     flash("Os formatos da foto são restritos a png, jpg e jpeg")
+                    return render_template('usuario_cadastrar.html', form = form)
 
-            else:
-                return redirect(url_for('usuario_listar'))
-            
+            usuario.salva()
+
             return redirect(url_for('usuario_listar'))
-        
+
         else:
             flash_errors(form)
-        
+
         return render_template('usuario_criar.html', form=form)

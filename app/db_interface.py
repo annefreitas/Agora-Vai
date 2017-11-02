@@ -1,7 +1,7 @@
 from flask_mysqldb import MySQL
 from .tables.usuario.usuario_interface import UsuarioInterface
-from .tables.usuario.usuario_modelo import Usuario
- 
+
+
 
 class Zelda(UsuarioInterface):
 
@@ -18,47 +18,10 @@ class Zelda(UsuarioInterface):
             cur.close()
             return data
 
-    def verifica_email(self,email):
+    def verifica_existe_email(self,email):
         data = self.execute_query("select count(*) as cont_usuarios from usuario where usuario_email ='{}'".format(email))
-        return int(data[0]['cont_usuarios']) >0
+        return int(data[0]['cont_usuarios']) > 0
 
-    def verifica_login(self, login, senha):
-        data = self.execute_query("select count(*) from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
+    def verifica_existe_login(self, login):
+        data = self.execute_query("select count(*) from usuario where usuario_login = '{}'".format(login))
         return int(data[0]['count(*)']) > 0
-
-    # função que verifica se o usuário está logado. Utilizado no login único.
-    def verifica_logado(self, login):
-        data = self.execute_query("select usuario_logado from  usuario where usuario_login = '{}'".format(login))
-        if (data[0]['usuario_logado'] == 1):
-            return False
-        return True
-
-    def set_logado_true(self, login):
-        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}'".format(login))
-        self.execute_query("update usuario set usuario_logado = 0 where  usuario_id = '{}'".format(data[0]['usuario_id']), True)
-
-    def set_logado_false(self, login):
-        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}'".format(login))
-        self.execute_query("update usuario set usuario_logado = 1 where usuario_id = '{}'".format(data[0]['usuario_id']), True)
-    
-
-    def get_usuario_senha(self, login):
-        data = self.execute_query("select usuario_senha from usuario where usuario_login = '{}'".format(login))
-        return data
-
-    def get_usuario_pelo_login(self, login):
-        data = self.execute_query("select * from usuario where usuario_login = '{}'".format(login))
-        if len(data) < 1:
-            return None
-        usuarios = []
-        for d in data:
-            usuario = Usuario(
-                id=d["usuario_id"],
-                login=d["usuario_login"],
-                senha=d["usuario_senha"],
-                logado=d["usuario_logado"],
-                #email=d["usuario_email"],
-                #confirmaemail=d["usuario_confirmaemail"],
-                )
-            usuarios.append(usuario)
-        return usuarios[0]

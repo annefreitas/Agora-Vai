@@ -1,5 +1,4 @@
 from flask_mysqldb import MySQL
-from .usuario_modelo import Usuario
 
 class UsuarioInterface:
 
@@ -16,69 +15,33 @@ class UsuarioInterface:
             cur.close()
         return data
 
- # CRUD - USUARIO
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, usuario_logado) values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, usuario.logado), True)
 
-    def get_usuarios(self):
-        data = self.execute_query("select * from usuario")
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"])
-            usuarios.append(usuario)
-        return usuarios
+        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, usuario_caminho_foto)\
+         values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, usuario.caminho_foto), True)
+        data = self.execute_query('select LAST_INSERT_ID() as last from usuario')
+        return data[0]['last']
 
-    def get_usuarios_logados(self):
-        data = self.execute_query("select * from usuario\
-            where usuario_logado = 1")
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"])
-            usuarios.append(usuario)
-        return usuarios
+    def get_usuarios_ids(self):
+        data = self.execute_query("select usuario_id from usuario")
+        return data
+
 
     def edita_usuario(self, usuario):
-        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.id), True)
+        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_email = '{}', usuario_caminho_foto = '{}'\
+         where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.email, usuario.caminho_foto, usuario.get_id()), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
 
     def get_usuario(self, id):
-        data = self.execute_query("select * from usuario where usuario_id = '{}'".format(id))
-        if len(data) < 1:
-            return None
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"])
-            usuarios.append(usuario)
-        return usuarios[0]
+        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_logado, usuario_email,\
+         usuario_caminho_foto from usuario where usuario_id = '{}' limit 1".format(id))
+        return data
 
-    def get_usuario_pelo_login(self, login):
-        data = self.execute_query("select * from usuario where usuario_login = '{}'".format(login))
+    def verifica_credenciais(self, login, senha):
+        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
         if len(data) < 1:
             return None
-        usuarios = []
-        for d in data:
-            usuario = Usuario(
-                id=d["usuario_id"],
-                login=d["usuario_login"],
-                senha=d["usuario_senha"],
-                logado=d["usuario_logado"],
-                email=d["usuario_email"])
-            usuarios.append(usuario)
-        return usuarios[0]
+
+        return data[0]['usuario_id']

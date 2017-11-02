@@ -8,3 +8,4 @@ from .features.usuario_cadastrar.usuario_cadastrar_front import *
 from .features.usuario_editar.usuario_editar_front import *
 from .features.usuario_remover.usuario_remover_front import *
 from .features.usuario_signup.usuario_signup_front import *
+
