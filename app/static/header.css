@@ -1,7 +1,12 @@
 #uea-logo {
     font-weight: bolder;
+color:white;
 }
 
 #main-body nav .btn-flat {
     color: white !important;
 }
+#cor{
+  background-color:rgb(158,47,47)
+}
+
