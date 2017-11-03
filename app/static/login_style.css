@@ -2,11 +2,11 @@
     /* Coloque aqui a altura do footer */
     padding-bottom: 55px !important;
 
-    background-color: #eee;
+    background-color:rgb(250,250,250);
     height: 100%;
     overflow: auto;
 
-    /*color: white;*/
+    
 }
 
 html {
@@ -16,6 +16,7 @@ html {
 #login-button {
     width: 100%;
     max-width: 215px;
+    color:#f2878b
 }
 
 #right-content .card-footer {
@@ -35,7 +36,11 @@ html {
 
 /******** Versão Desktop da tela ********/
 #uea-logo {
-    height: 75px;
+    height: 300px;
+}
+
+#uea-logo-fundo {
+    background-color:rgb(223,91,91)
 }
 
 .container-fluid {
@@ -57,7 +62,7 @@ html {
     min-height: 470px;
 }
 .btn-cadastrar{
-    background-color: #00C851;
+    background-color:#00c851;
 }
 
 #left-content, #right-content, #right-content > .row {
@@ -72,6 +77,8 @@ html {
     position: absolute;
     right: 0;
     width: 35px;
+    
+   
 }
 
 /******* Versão Mobile da tela *********/
