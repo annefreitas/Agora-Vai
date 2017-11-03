@@ -11,15 +11,15 @@
 
         <!-- Conteúdo da esquerda -->
         <div class="col-12 col-md-6" id="left-content">
-            <div class="row align-items-center h-100 uea-light">
+            <div class="row align-items-center h-100 mb-color" id="uea-logo-fundo">
                 <div class="col text-center">
-                    <img src="{{url_for('static', filename='assets/found.png')}}" id="uea-logo">
+                    <img src="{{url_for('static', filename='assets/foundanies.png')}}" id="uea-logo">
                 </div>
 
                 <!-- Triângulo -->
                 <div id="triangulo">
                     <svg height="100" width="40" fill="#54D182">
-                        <path d="M0 0 L40 50 L0 100 z"/>
+                        <path d="M0 0 L40 50 L0 100 z" id="uea-logo-fundo"/>
                     </svg>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="modal-footer d-flex justify-content-center">
-                  <a href="http://127.0.0.1:5000/cadastrar">  <button class="btn uea-light" type="submit">Cadastrar</button></a>
+                  <a href="http://127.0.0.1:5000/cadastrar">  <button class="btn uea-ligh" type="submit">Cadastrar</button></a>
 
                 </div>
             </form>
@@ -119,8 +119,8 @@
     </div>
 </div>
 
-<div id="footer" class="uea-dark">
-    <div class="container">
+<div id="footer">
+    <div class="container" id="footer">
         <p class="text-right mt-1">Foundanies Desenvolvido em 2017</p>
     </div>
 </div>
