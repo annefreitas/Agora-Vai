@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for
 from ...cursor import db
 from ...authentication import retorna_usuario
-from ...utils.zelda_modelo import ZeldaModelo
+from ...utils.foundanies_modelo import foundaniesModelo
 
 class HomeNegocio():
     

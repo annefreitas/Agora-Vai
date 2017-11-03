@@ -3,12 +3,9 @@ from ..tables.usuario.usuario_modelo import Usuario
 
 
 
-class ZeldaModelo:
+class foundaniesModelo:
 
     
-
-    
-
     @staticmethod
     def lista_usuarios():
         result = []
