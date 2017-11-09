@@ -3,6 +3,11 @@
     max-width: 100px;
 }
 
+#post-img {
+    margin-left:5%;
+    
+}
+
 .card {
     width: 100%;
     max-width: 250px;
@@ -16,4 +21,34 @@
 
 #home-main-div {
     padding-top: 5rem;
+}
+
+img {
+    max-width:250px;
+    max-height:250px;
+    height: auto;
+    width: auto;
+    top:0px;
+
+ 
+}
+
+.round-button {
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    background-color: rgb(2,1,53);
+    color: white;
+    width: 15%;
+    height: 35px;
+    transform: translatex(560%)
+}
+
+h3 {
+    color: grey;
+    font-family: "Segoe UI";
+    margin: px;
+    padding: 5px;
+	margin-left: 250px;
+    fonte-size:20%;
 }

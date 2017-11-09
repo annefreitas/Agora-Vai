@@ -40,7 +40,7 @@ class UsuarioInterface:
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
 
     def get_usuario(self, id):
-        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,usuario_pasta,\
+        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,\
          usuario_caminho_foto from usuario where usuario_id = '{}' limit 1".format(id))
         
         return data
@@ -53,7 +53,7 @@ class UsuarioInterface:
         return data[0]['usuario_id']
 
     def get_usuario_pelo_email(self, email):
-        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,usuario_pasta,\
+        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,\
          usuario_caminho_foto from usuario where usuario_email = '{}' limit 1".format(email))
         return data[0]['usuario_id']
 
@@ -64,8 +64,6 @@ class UsuarioInterface:
     def edita_usuario_caminho_foto(self, usuario):
         self.execute_query("update usuario set usuario_caminho_foto = '{}' where usuario_id = '{}'".format(usuario.get_caminho_foto(), usuario.get_id()), True)
 
-    def set_usuario_pasta(self, usuario):
-        self.execute_query("update usuario set usuario_pasta = '{}' where usuario_id = '{}'".format(usuario.get_id(), usuario.get_id()), True)
 
     def set_usuario_senha(self, id, senha):
         self.execute_query("update usuario set usuario_senha = '{}' where usuario_id = '{}'".format(senha, id), True)
