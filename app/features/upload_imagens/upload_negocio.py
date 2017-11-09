@@ -41,5 +41,5 @@ class UploadNegocio:
     @login_required
     def send_image(filename):
         usuario = retorna_usuario()
-        return send_from_directory("images\\{}".format(usuario.get_id()), filename)
+        return send_from_directory("features\\upload_imagens\\images\\{}".format(usuario.get_id()), filename)
 
