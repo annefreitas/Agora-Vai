@@ -19,7 +19,7 @@ class UploadNegocio:
     def upload():
         usuario = retorna_usuario()
         caminho=usuario.get_id()
-        target = os.path.join(APP_ROOT, "images/{}/".format(caminho))
+        target = os.path.join(APP_ROOT, "images\\{}".format(caminho))
         print(target)
         if not os.path.isdir(target):
             os.mkdir(target)
@@ -41,5 +41,5 @@ class UploadNegocio:
     @login_required
     def send_image(filename):
         usuario = retorna_usuario()
-        return send_from_directory("images/{}".format(usuario.get_id()), filename)
+        return send_from_directory("images\\{}".format(usuario.get_id()), filename)
 
