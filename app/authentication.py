@@ -24,7 +24,6 @@ def autentica(login, senha):
     return False
 
 def sessao_ativa():
-    print(session)
     if 'user_id' not in session:
         return False
 

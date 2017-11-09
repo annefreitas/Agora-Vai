@@ -11,7 +11,12 @@
             <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
                 <div class="card mx-auto">
                      <div class="text-center card-profile-image w-100">
-                        <img id="user-img" class="img-responsive z-depth-1" src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.caminho_foto}}">
+						<img id="user-img" class="img-responsive z-depth-1" 
+                        {% if usuario.get_caminho_foto() %}
+                        src="{{url_for('static', filename='images/usuarios/')}}{{usuario.get_caminho_foto()}}">
+                        {% else %}
+                        src="{{url_for('static', filename='assets/user_profile.jpg')}}">
+                        {% endif %}
                     </div>
                         
                     <div class="card-body mt-5">
