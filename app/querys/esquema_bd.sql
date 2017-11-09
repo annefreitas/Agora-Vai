@@ -1,9 +1,9 @@
 ﻿--
--- Database: zelda
+-- Database: foundanies
 --
-DROP DATABASE IF EXISTS zelda;
-CREATE SCHEMA zelda;
-USE zelda;
+DROP DATABASE IF EXISTS foundnaies;
+CREATE SCHEMA foundanies;
+USE foundanies;
 
 
 -- Estrutura da tabela usuario
@@ -17,7 +17,6 @@ CREATE TABLE usuario (
   usuario_email varchar(100) NOT NULL,
   usuario_status int(11) NOT NULL DEFAULT '0',
   usuario_caminho_foto varchar(100),
-  usuario_pasta varchar(100),
   PRIMARY KEY (usuario_id)
 );
 
