@@ -2,7 +2,7 @@ from ..cursor import db
 from ..tables.usuario.usuario_modelo import Usuario
 
 
-class ZeldaModelo:
+class FoundaniesModelo:
 
    
 

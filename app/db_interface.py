@@ -3,7 +3,7 @@ from .tables.usuario.usuario_interface import UsuarioInterface
 
 
 
-class Zelda( UsuarioInterface):
+class Foundanies( UsuarioInterface):
 
     def __init__(self, app):
         self.mysql = MySQL(app)

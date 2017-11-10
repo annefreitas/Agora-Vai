@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, send_from_directory
 from ...utils.flash_errors import flash_errors
-from ...utils.zelda_modelo import ZeldaModelo
+from ...utils.foundanies_modelo import FoundaniesModelo
 from ...utils.files import flash_errors_extensao
 from ...tables.usuario.usuario_modelo import Usuario
 from ...cursor import db

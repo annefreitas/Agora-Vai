@@ -4,7 +4,7 @@ from ...cursor import db
 from ...utils.flash_errors import flash_errors
 from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
-from ...utils.zelda_modelo import ZeldaModelo
+from ...utils.foundanies_modelo import FoundaniesModelo
 from ...utils.files import flash_errors_extensao
 from flask_json import json_response
 

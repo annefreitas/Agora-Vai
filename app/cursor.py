@@ -1,5 +1,5 @@
 from app import app
-from .db_interface import Zelda
+from .db_interface import Foundanies
 
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
@@ -10,4 +10,4 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 
 # init MYSQL
-db = Zelda(app)
+db = Foundanies(app)

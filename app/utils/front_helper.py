@@ -1,7 +1,7 @@
 from functools import wraps
 from flask import url_for, request, redirect, render_template, session, flash
 from ..authentication import sessao_ativa, make_session_permanent, sessao_expirada, retorna_usuario
-from .zelda_modelo import ZeldaModelo
+from .foundanies_modelo import FoundaniesModelo
 
 
 
