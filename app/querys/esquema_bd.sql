@@ -17,6 +17,7 @@ CREATE TABLE usuario (
   usuario_email varchar(100) NOT NULL,
   usuario_status int(11) NOT NULL DEFAULT '0',
   usuario_caminho_foto varchar(100),
+  usuario_descricao varchar(140) NOT NULL,
   PRIMARY KEY (usuario_id)
 );
 
