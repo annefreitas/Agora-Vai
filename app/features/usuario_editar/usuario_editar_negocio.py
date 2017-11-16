@@ -14,7 +14,7 @@ class UsuarioEditarNegocio:
 
         usuario = Usuario(user_id)
         if usuario.get_id() is None:
-            return redirect(url_for('usuario_listar'))
+            return redirect(url_for('home'))
 
 
         if form.validate_on_submit():
@@ -30,7 +30,7 @@ class UsuarioEditarNegocio:
                     return render_template('usuario_editar.html', form=form)
 
 
-            return redirect(url_for('usuario_listar'))
+            return redirect(url_for('home'))
 
         else:
             flash_errors(form)
