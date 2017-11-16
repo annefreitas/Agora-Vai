@@ -16,8 +16,8 @@ class UsuarioInterface:
         return data
 
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha)\
-         values ('{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha), True)
+        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_descricao)\
+         values ('{}', '{}', '{}')".format(usuario.login, usuario.email,usuario.descricao), True)
         data = self.execute_query('select LAST_INSERT_ID() as last from usuario')
         return data[0]['last']
 
@@ -41,7 +41,7 @@ class UsuarioInterface:
 
     def get_usuario(self, id):
         data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,\
-         usuario_caminho_foto from usuario where usuario_id = '{}' limit 1".format(id))
+         usuario_caminho_foto,usuario_descricao from usuario where usuario_id = '{}' limit 1".format(id))
         
         return data
 
@@ -54,7 +54,7 @@ class UsuarioInterface:
 
     def get_usuario_pelo_email(self, email):
         data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,\
-         usuario_caminho_foto from usuario where usuario_email = '{}' limit 1".format(email))
+         usuario_caminho_foto, usuario_descricao from usuario where usuario_email = '{}' limit 1".format(email))
         return data[0]['usuario_id']
 
     def get_usuario_status(self, id):

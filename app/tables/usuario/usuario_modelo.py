@@ -12,6 +12,7 @@ class Usuario:
         self.email = None
         self.__status = 0
         self.__caminho_foto = 'user_profile.jpg'
+        self.__descricao=None
         
         
 
@@ -23,6 +24,7 @@ class Usuario:
                 self.email = data[0]['usuario_email']
                 self.__status = data[0]['usuario_status']
                 self.__caminho_foto = data[0]['usuario_caminho_foto']
+                self.__descricao= data[0]['usuario_descricao']
                 
                 
 
@@ -44,6 +46,9 @@ class Usuario:
 
     def get_caminho_foto(self):
         return self.__caminho_foto
+
+    def get_descricao(self):
+        return self.__descricao
 
     
 

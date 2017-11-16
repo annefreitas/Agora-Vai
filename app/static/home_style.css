@@ -1,12 +1,12 @@
 #user-img {
     border-radius: 50%;
-    max-width: 100px;
+    max-width: 150px;
 }
 
 
 .card {
     width: 100%;
-    max-width: 250px;
+    max-width: 1500px;
 }
 
 #main-body .card-profile-image {
@@ -44,10 +44,10 @@ img {
 }
 
 h3 {
-    color: grey;
+    color: Black;
     font-family: "Segoe UI";
     margin: px;
     padding: 5px;
-	margin-left: 250px;
+	margin-left: 490px;
     fonte-size:20%;
 }
