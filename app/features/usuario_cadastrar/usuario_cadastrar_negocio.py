@@ -7,6 +7,7 @@ from ...utils.criptografador import Criptografador
 from ...utils.foundanies_modelo import FoundaniesModelo
 from ...utils.files import flash_errors_extensao
 from flask_json import json_response
+from ...utils.mailer import Mailer, enviar_email_confirmacao
 
 class UsuarioCadastrarNegocio:
 
@@ -36,6 +37,8 @@ class UsuarioCadastrarNegocio:
                 if usuario.get_caminho_foto() is None:
                     flash_errors_extensao()
                     return render_template('usuario_criar.html', form=form)
+                
+            enviar_email_confirmacao(usuario)
 
             return redirect(url_for('usuario_listar'))
 
