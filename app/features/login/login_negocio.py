@@ -16,7 +16,7 @@ class LoginNegocio:
             senha = form.senha.data
 
             if autentica(login, senha):
-                return redirect(url_for('home'))
+                return redirect(url_for('feed'))
 
             flash("Nome de usuário ou senha incorretos.")
         else:
