@@ -21,9 +21,7 @@ class UsuarioEditarNegocio:
         if form.validate_on_submit():
 
             data_1 = db.verifica_existe_login(form.usuario_login.data)
-
-            
-            if len(data_1) > 0:
+            if len(data_1) > 0 and (form.usuario_login.data != usuario.get_login()):
                 flash("Login já cadastrado no sistema.")
                 return render_template('usuario_editar.html', form=form)
 
