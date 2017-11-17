@@ -19,21 +19,19 @@ class UploadNegocio:
     @login_required
     def upload():
         usuario = retorna_usuario()
+        ######################################################################
         #perfil
         caminho=usuario.get_id()
         target = os.path.join(APP_ROOT, "images\\{}".format(caminho))
-        #perfil
+        
         print(target)
-        #perfil
+        
         if not os.path.isdir(target):
             os.mkdir(target)
         else:
             print("Couldn't create upload directory: {}".format(target))
         print(request.files.getlist("file"))
 
-        
-        ######################################################################
-        #perfil
         for upload in request.files.getlist("file"):
             print(upload)
             print("{} is the file name".format(upload.filename))
@@ -45,17 +43,14 @@ class UploadNegocio:
         ######################################################################
         #feed
         target1 = os.path.join(APP_ROOT1, "images\\feed")
-        #feed
         print(target1)
-        #####################################################################
-        #feed
+        
         if not os.path.isdir(target1):
             os.mkdir(target1)
         else:
             print("Couldn't create upload directory: {}".format(target1))
         print(request.files.getlist("file"))
-        #####################################################################
-        #feed
+        
         for upload in request.files.getlist("file"):
             print(upload)
             print("{} is the file name".format(upload.filename))
