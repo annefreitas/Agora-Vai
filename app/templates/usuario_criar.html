@@ -1,4 +1,4 @@
-﻿{% extends "header.html" %}
+﻿{% extends "header_cadastrar.html" %}
 
 {% block styles %}
     {{ super() }}
@@ -53,9 +53,9 @@
                             {{ form.file }}
                         </div>
 
-                        <button type="submit" class="btn uea-light">Cadastrar</button>
+                        <button type="submit" class="btn red">Cadastrar</button>
                         <a href="{{url_for('login')}}">
-                            <button type="button" class="btn btn-flat">Cancelar</button>
+                            <button type="button" class="btn red">Cancelar</button>
                         </a>
                     </form>
                 </div>
