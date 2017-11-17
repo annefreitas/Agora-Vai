@@ -7,6 +7,6 @@ from ...authentication import sessao_ativa
 @app.route('/login', methods=['GET','POST'])
 def login():
     if sessao_ativa():
-        return redirect(url_for('home'))
+        return redirect(url_for('feed'))
     
     return LoginNegocio.exibir()

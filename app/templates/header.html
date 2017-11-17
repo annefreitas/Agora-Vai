@@ -7,12 +7,15 @@
 
 {% block header %}
     <nav id="cor" class="navbar navbar">
-        <a class="navbar-brand" id="uea-logo" href="{{url_for('home')}}">FOUNDANIES</a>
+        <a class="navbar-brand" id="uea-logo" href="{{url_for('feed')}}"><i class="fa fa-th-large" aria-hidden="true"></i> FEED
+		</a>
 
         <!--Botão de Sair-->
-        <form class="form-inline" action="{{url_for('logout')}}" method="post">
-            <button class="btn btn-sm btn-flat">Sair</a>
-        </form>
+		 <a class="navbar-brand" id="uea-logo" href="{{url_for('home')}}"> <i class="fa fa-user" aria-hidden="true"></i> PERFIL
+
+		 </a>
+		  <a  class="navbar-brand" id="uea-logo" href="{{url_for('logout')}}"> <i class="fa fa-remove" aria-hidden="true"></i> SAIR </a>
+        
     </nav>
 {% endblock %}
 
