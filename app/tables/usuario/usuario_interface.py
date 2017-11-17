@@ -33,8 +33,8 @@ class UsuarioInterface:
 
     def edita_usuario(self, usuario):
 
-        self.execute_query("update usuario set usuario_login = '{}', usuario_email = '{}'\
-         where usuario_id = '{}'".format(usuario.login, usuario.email, usuario.get_id()), True)
+         self.execute_query("update usuario set usuario_login = '{}', usuario_email = '{}',usuario_descricao = '{}' \
+         where usuario_id = '{}'".format(usuario.login, usuario.email,usuario.descricao, usuario.get_id()), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)

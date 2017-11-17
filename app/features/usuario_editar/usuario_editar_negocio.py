@@ -19,6 +19,7 @@ class UsuarioEditarNegocio:
 
         if form.validate_on_submit():
             usuario.login = form.usuario_login.data
+            usuario.descricao= form.usuario_descricao.data
             usuario.salva()
             
             usuario.set_senha(form.usuario_senha.data)
