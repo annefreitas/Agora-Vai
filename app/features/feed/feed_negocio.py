@@ -12,5 +12,5 @@ class FeedNegocio():
         usuario = retorna_usuario()
         form.usuario_id.data = usuario.get_id()
         form.email.data = usuario.email
-        image_names = os.listdir('./app/features/upload_imagens/images/{}/'.format(usuario.get_id()))
+        image_names = os.listdir('./app/features/upload_imagens/images/feed/')
         return render_template('feed.html', form = form, usuario = usuario,image_names=image_names )
