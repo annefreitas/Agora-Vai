@@ -20,9 +20,14 @@ class UsuarioCadastrarNegocio:
         if form.validate_on_submit():
            
             data = db.verifica_existe_email(form.usuario_email.data)
+            data_1 = db.verifica_existe_login(form.usuario_login.data)
 
             if len(data) > 0:
                 flash("Email já cadastrado no sistema.")
+                return render_template('usuario_criar.html', form=form)
+
+            if len(data_1) > 0:
+                flash("Login já cadastrado no sistema.")
                 return render_template('usuario_criar.html', form=form)
             
             usuario = Usuario()
