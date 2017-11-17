@@ -5,6 +5,7 @@ from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
 from ...utils.foundanies_modelo import FoundaniesModelo
 from ...utils.files import flash_errors_extensao
+from ...cursor import db
 
 from app import app
 
@@ -18,6 +19,16 @@ class UsuarioEditarNegocio:
 
 
         if form.validate_on_submit():
+
+            data_1 = db.verifica_existe_login(form.usuario_login.data)
+
+            
+            if len(data_1) > 0:
+                flash("Login já cadastrado no sistema.")
+                return render_template('usuario_editar.html', form=form)
+
+
+            
             usuario.login = form.usuario_login.data
             usuario.descricao= form.usuario_descricao.data
             usuario.salva()
