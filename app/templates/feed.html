@@ -14,10 +14,10 @@
           </div>
 		  
           {% for image_name in image_names %}
-				<img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"  >
-				<div class="col-lg-12"><br />
-					<a href="{{url_for('comentar')}}"><button class="btn btn-success">Comentar</button></a><a href="{{url_for('comentarios')}}"><button class="btn btn-blue">Comentários</button></a>
-				</div>
+		<img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"  >
+		<div class="col-lg-12"><br />
+			<a href="{{url_for('comentar')}}"><button class="btn btn-success">Comentar</button></a><a href="{{url_for('comentarios')}}"><button class="btn btn-blue">Comentários</button></a>
+		</div>
 				
 		  
           {% endfor %}
