@@ -8,17 +8,23 @@
 {% block content %}
     <div class="container">
 		<div class="row">
+
 		 <div class="col-lg-12"><br />
                <h3 class="page-header">Feed dos Usuarios </h3>
           </div>
+		  
           {% for image_name in image_names %}
-          <div class="col-lg-4 col-md-6 col-xs-8">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"  >
-          </div>
+				<img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"  >
+				<div class="col-lg-12"><br />
+					<a href="{{url_for('comentar')}}"><button class="btn btn-success">Comentar</button></a><a href="{{url_for('comentarios')}}"><button class="btn btn-blue">Comentários</button></a>
+				</div>
+				
+		  
           {% endfor %}
 		  <a href="{{url_for('up')}}" class=" red  my-btn-floating my-btn-fixed">
             <i class="fa fa-upload" aria-hidden="true"></i>
 		   </a>
+	
         </div>
 
     </div>
