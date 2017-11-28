@@ -16,7 +16,7 @@
           {% for image_name in image_names %}
 		  <div class="col-lg-4 col-md-6 col-xs-8">
             <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"  ><br/>
-			<a href="{{url_for('comentar')}}"><button class="btn btn-red">Comentar</button></a><a href="{{url_for('comentarios')}}"><button class="btn btn-red">Comentários</button></a>
+			<a href="{{url_for('comentar')}}"><button class="btn btn-pink">Comentar</button></a><a href="{{url_for('comentarios')}}"><button class="btn btn-pink">Comentários</button></a>
           </div>
 		
 			
@@ -24,7 +24,7 @@
 				
 		  
           {% endfor %}
-		  <a href="{{url_for('up')}}" class=" red  my-btn-floating my-btn-fixed">
+		  <a href="{{url_for('up')}}" class=" pink  my-btn-floating my-btn-fixed">
             <i class="fa fa-upload" aria-hidden="true"></i>
 		   </a>
 	

@@ -16,7 +16,7 @@ html {
 #login-button {
     width: 100%;
     max-width: 215px;
-    color:#f2878b
+    color:#ffffff
 }
 
 #right-content .card-footer {
@@ -29,6 +29,7 @@ html {
     border: none;
     border-bottom: none;
 }
+
 
 #main-body input:focus {
     box-shadow: none;*/
@@ -72,7 +73,11 @@ html {
 #left-content .row {
     margin-right: 15px;
 }
-
+.cor_butao {
+    color:#100114;
+    background-color:#c21385;
+   
+}
 #triangulo {
     position: absolute;
     right: 0;
