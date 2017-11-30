@@ -25,7 +25,11 @@ class UsuarioEditarNegocio:
                 flash("Login já cadastrado no sistema.")
                 return render_template('usuario_editar.html', form=form)
 
-
+            usuario.nome = form.usuario_nome.data
+            usuario.sobrenome = form.usuario_sobrenome.data
+            usuario.celular = form.usuario_celular.data
+            usuario.idade = form.usuario_idade.data
+            usuario.sexo = form.usuario_sexo.data
             
             usuario.login = form.usuario_login.data
             usuario.descricao= form.usuario_descricao.data
