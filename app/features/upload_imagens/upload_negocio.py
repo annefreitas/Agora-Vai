@@ -30,7 +30,7 @@ class UploadNegocio:
             filename_1= upload.filename
             
             destination = "/".join([target, filename])
-            destination_1 = "/".join([target_1, filename1])
+            destination_1 = "/".join([target_1, filename_1])
             
             upload.save(destination)
             upload.save(destination_1)
