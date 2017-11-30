@@ -16,7 +16,6 @@
           {% for image_name in image_names %}
 		  <div class="col-lg-4 col-md-6 col-xs-8">
             <img class="img-responsive" src=" {{url_for('send_image_feed', filename=image_name)}}"  ><br/>
-			<a href="{{url_for('comentar')}}"><button class="btn btn-pink">Comentar</button></a><a href="{{url_for('comentarios')}}"><button class="btn btn-pink">Comentários</button></a>
           </div>
 		
 			

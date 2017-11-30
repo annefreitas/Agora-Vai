@@ -8,8 +8,7 @@ from flask_json import json_response
 from ...utils.front_helper import *
 from flask_mysqldb import MySQL
 from ...authentication import retorna_usuario
-
-from django.db.models.signals import post_save
+import shutil
 
 import os
 
@@ -28,7 +27,6 @@ class UploadNegocio:
 
         
         for upload in request.files.getlist("file"):
-
             filename = upload.filename  #diretorio 0
             filename_1= upload.filename #diretorio 1
             
@@ -36,8 +34,7 @@ class UploadNegocio:
             destination_1 = "/".join([target_1, filename_1]) #diretorio 1
             
             upload.save(destination) #diretorio 0
-            post_save()
-            upload.save(destination_1) #diretorio 1
+            shutil.copy(destination,destination_1)
             
             
             

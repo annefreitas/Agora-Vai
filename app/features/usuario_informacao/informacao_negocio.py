@@ -2,6 +2,9 @@ from flask import render_template, redirect, url_for
 from ...cursor import db
 from ...authentication import retorna_usuario
 from ..usuario_informacao.usuario_informacao_form import UsuarioInformacaoForm
+from ...tables.usuario.usuario_modelo import Usuario
+from ...utils.foundanies_modelo import FoundaniesModelo
+
 import os
 
 
