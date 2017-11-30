@@ -31,7 +31,7 @@ def get_nome_arquivo(arquivo_input):
     return filename
 
 def monta_nome(id_arquivo, nome_arquivo):
-    return str(id_arquivo) + '.' + nome_arquivo.rsplit('.', 1)[1]
+    return str(id_arquivo) + '.' + nome_arquivo
 
 def flash_errors_extensao():
     str = 'Os formatos são restritos a '

@@ -11,6 +11,10 @@ USE foundanies;
 
 DROP TABLE IF EXISTS usuario;
 CREATE TABLE usuario (
+  usuario_nome varchar(50) NOT NULL,
+  usuario_sobrenome varchar(50) NOT NULL,
+  usuario_celular int(15) NOT NULL,
+  usuario_idade varchar(10) NOT NULL,
   usuario_id int(11) AUTO_INCREMENT NOT NULL,
   usuario_login varchar(100) NOT NULL,
   usuario_senha varchar(50),
@@ -20,4 +24,6 @@ CREATE TABLE usuario (
   usuario_descricao varchar(140) NOT NULL,
   PRIMARY KEY (usuario_id)
 );
+
+	
 

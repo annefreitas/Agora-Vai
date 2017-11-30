@@ -12,5 +12,4 @@ class ComentarNegocio():
         usuario = retorna_usuario()
         form.usuario_id.data = usuario.get_id()
         form.email.data = usuario.email
-        image_names = os.listdir('./app/features/upload_imagens/images/feed/')
-        return render_template('usuario_comentar.html', form = form, usuario = usuario,image_names=image_names )
+        return render_template('usuario_comentar.html', form = form, usuario = usuario)
