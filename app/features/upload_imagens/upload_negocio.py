@@ -24,16 +24,17 @@ class UploadNegocio:
         target_1 = os.path.join(APP_ROOT, "images\\feed") 
         target = os.path.join(APP_ROOT, "images\\{}".format(caminho))
 
-        #devia salvar a imagem no diretorio perfil
+        
         for upload in request.files.getlist("file"):
-            filename = upload.filename
-            filename_1= upload.filename
+
+            filename = upload.filename  #diretorio 0
+            filename_1= upload.filename #diretorio 1
             
-            destination = "/".join([target, filename])
-            destination_1 = "/".join([target_1, filename_1])
+            destination = "/".join([target, filename]) #diretorio 0
+            destination_1 = "/".join([target_1, filename_1]) #diretorio 1
             
-            upload.save(destination)
-            upload.save(destination_1)
+            upload.save(destination) #diretorio 0
+            upload.save(destination_1) #diretorio 1
             
         return redirect(url_for('home'))
 
