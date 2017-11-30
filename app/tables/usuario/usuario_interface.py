@@ -16,8 +16,7 @@ class UsuarioInterface:
         return data
 
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_nome, usuario_sobrenome, usuario_login, usuario_email, usuario_sexo, usuario_idade,\
-         usuario_celular, usuario_descricao)\
+        self.execute_query("insert into usuario (usuario_nome, usuario_sobrenome, usuario_login, usuario_email, usuario_sexo, usuario_idade,usuario_celular, usuario_descricao)\
          values ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(usuario.nome, usuario.sobrenome, usuario.login, usuario.email, usuario.sexo, usuario.idade, usuario.celular, usuario.descricao), True)
         data = self.execute_query('select LAST_INSERT_ID() as last from usuario')
         return data[0]['last']

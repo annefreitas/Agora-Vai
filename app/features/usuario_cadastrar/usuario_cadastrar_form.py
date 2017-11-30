@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, SelectField,TextField,TextAreaField, IntegerField
+from wtforms import StringField, PasswordField, SelectField,TextField,TextAreaField,IntegerField
 from wtforms.validators import DataRequired
 from flask_wtf.file import FileField
 from flask_wtf.file import FileRequired
@@ -12,7 +12,6 @@ class CadastrarUsuarioForm(Form):
     usuario_sexo = StringField('Informe seu sexo', validators=[DataRequired('Seu sexo é obrigatório')])
     usuario_idade = StringField('Informe sua idade', validators=[DataRequired('Idade é obrigatória')])
     usuario_celular = IntegerField('Informe o nº do seu celular', validators=[DataRequired('Nº de celular é obrigatório')])
-    
     usuario_email = TextField("Email",  validators=[DataRequired("O seu email é obrigatório.")])
     usuario_senha = PasswordField('Senha', validators=[DataRequired('Senha do Usuario é obrigatório')])
     usuario_descricao = TextAreaField('Descrição')
