@@ -1,0 +1,30 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='home_style.css')}}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" id="home-main-div" >
+            <div class="col-12 col-sm-12 col-md-10 col-lg-10 mx-auto">
+                <div class="card mx-12">
+                    <div class="card-body">
+                        <h4 class="card-title">Dados Pessoais    <a <i class="fa fa-user " aria-hidden="true"></i></a></h4>
+                        <ul class="list-group">
+							<li class="list-group-item"><span><strong>Nome:</strong></span> {{usuario.get_nome()}}</li>
+							<li class="list-group-item"><span><strong>Sobrenome:</strong></span> {{usuario.get_sobrenome()}}</li>
+                            <li class="list-group-item"><span><strong>Login:</strong></span> {{usuario.login}}  </li> 
+							<li class="list-group-item"><span><strong>Idade:</strong></span> {{usuario.get_idade()}}</li>
+							<li class="list-group-item"><span><strong>Sexo:</strong></span> {{usuario.get_sexo()}}</li>
+							<li class="list-group-item"><span><strong>Numero:</strong></span> {{usuario.get_celular()}}</li>
+							<li class="list-group-item"><span><strong>Biografia:</strong></span> {{usuario.get_descricao()}}</li>
+							<li class="list-group-item"><span><strong>E-mail:</strong></span> {{usuario.email}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

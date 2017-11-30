@@ -15,3 +15,4 @@ from .features.upload_imagens.upload_front import *
 from .features.feed.feed_front import *
 from .features.usuario_comentar.usuario_comentar_front import *
 from .features.usuario_mostrar_comentario.usuario_mostrar_comentario_front import *
+from .features.usuario_informacao.informacao_front import *
