@@ -13,6 +13,12 @@ class Usuario:
         self.__status = 0
         self.__caminho_foto = 'user_profile.jpg'
         self.__descricao=None
+        self.__nome = None
+        self.__sobrenome = None
+        self.__celular = 0
+        self.__idade = None
+        self.__sexo = None
+        
         
         
 
@@ -25,9 +31,29 @@ class Usuario:
                 self.__status = data[0]['usuario_status']
                 self.__caminho_foto = data[0]['usuario_caminho_foto']
                 self.__descricao= data[0]['usuario_descricao']
+                self.__nome = data [0] ['usuario_nome']
+                self.__celular = data [0] ['usuario_celular']
+                self.__idade = data [0] ['usuario_idade']
+                self.__sexo = data [0] ['usuario_sexo']
+                self.__sobrenome = data [0] ['usuario_sobrenome']
                 
                 
+    def get_nome(self):
+        return self.__nome
 
+    def get_sobrenome(self):
+        return self.__sobrenome
+
+    def get_celular(self):
+        return self.__celular
+
+    def get_idade(self):
+        return self.__idade
+     
+    def get_sexo(self):
+        return self.__sexo
+
+    
     def get_id(self):
         return self.__usuario_id
     
@@ -45,7 +71,6 @@ class Usuario:
             return 'Confirmado'
         
         return 'Indefinido'
-
 
 
     def get_caminho_foto(self):

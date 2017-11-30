@@ -16,8 +16,9 @@ class UsuarioInterface:
         return data
 
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_descricao)\
-         values ('{}', '{}', '{}')".format(usuario.login, usuario.email,usuario.descricao), True)
+        self.execute_query("insert into usuario (usuario_nome, usuario_sobrenome, usuario_login, usuario_email, usuario_sexo, usuario_idade,\
+         usuario_celular, usuario_descricao)\
+         values ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(usuario.nome, usuario.sobrenome, usuario.login, usuario.email, usuario.sexo, usuario.idade, usuario.celular, usuario.descricao), True)
         data = self.execute_query('select LAST_INSERT_ID() as last from usuario')
         return data[0]['last']
 
@@ -33,15 +34,17 @@ class UsuarioInterface:
 
     def edita_usuario(self, usuario):
 
-         self.execute_query("update usuario set usuario_login = '{}', usuario_email = '{}',usuario_descricao = '{}' \
-         where usuario_id = '{}'".format(usuario.login, usuario.email,usuario.descricao, usuario.get_id()), True)
+         self.execute_query("update usuario set usuario_login = '{}', usuario_email = '{}',usuario_descricao = '{}', usuario_nome = '{}', \
+         usuario_sobrenome = '{}', usuario_idade = '{}', usuario_sexo = '{}', usuario_celular = '{}'\
+         where usuario_id = '{}'".format(usuario.login, usuario.email,usuario.descricao,usuario.nome,usuario.sobrenome, usuario.idade,usuario.sexo,usuario.celular,usuario.get_id()), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
 
     def get_usuario(self, id):
         data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,\
-         usuario_caminho_foto,usuario_descricao from usuario where usuario_id = '{}' limit 1".format(id))
+         usuario_nome, usuario_sobrenome, usuario_sexo, usuario_celular, usuario_idade, usuario_caminho_foto,\
+         usuario_descricao from usuario where usuario_id = '{}' limit 1".format(id))
         
         return data
 
@@ -54,7 +57,8 @@ class UsuarioInterface:
 
     def get_usuario_pelo_email(self, email):
         data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_email, usuario_status,\
-         usuario_caminho_foto, usuario_descricao from usuario where usuario_email = '{}' limit 1".format(email))
+         usuario_caminho_foto, usuario_nome, usuario_sobrenome, usuario_sexo, usuario_celular, usuario_idade,\
+        usuario_descricao from usuario where usuario_email = '{}' limit 1".format(email))
         return data[0]['usuario_id']
 
     def get_usuario_status(self, id):

@@ -13,8 +13,9 @@ DROP TABLE IF EXISTS usuario;
 CREATE TABLE usuario (
   usuario_nome varchar(50) NOT NULL,
   usuario_sobrenome varchar(50) NOT NULL,
-  usuario_celular int(15) NOT NULL,
-  usuario_idade varchar(10) NOT NULL,
+  usuario_celular int(50) NOT NULL,
+  usuario_idade varchar(20) NOT NULL,
+  usuario_sexo varchar(20) NOT NULL,
   usuario_id int(11) AUTO_INCREMENT NOT NULL,
   usuario_login varchar(100) NOT NULL,
   usuario_senha varchar(50),

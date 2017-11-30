@@ -15,8 +15,6 @@ class UsuarioCadastrarNegocio:
 
         form = CadastrarUsuarioForm()
 
-
-
         if form.validate_on_submit():
            
             data = db.verifica_existe_email(form.usuario_email.data)
@@ -31,6 +29,11 @@ class UsuarioCadastrarNegocio:
                 return render_template('usuario_criar.html', form=form)
             
             usuario = Usuario()
+            usuario.nome = form.usuario_nome.data
+            usuario.sobrenome = form.usuario_sobrenome.data
+            usuario.celular = form.usuario_celular.data
+            usuario.idade = form.usuario_idade.data
+            usuario.sexo = form.usuario_sexo.data
             usuario.email = form.usuario_email.data
             usuario.login = form.usuario_login.data
             usuario.descricao= form.usuario_descricao.data

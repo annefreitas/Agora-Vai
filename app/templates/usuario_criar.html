@@ -30,8 +30,28 @@
                         {{form.hidden_tag()}}
 
                         <div class="md-form">
+                            {{form.usuario_nome(class_='form-control', id='nome-input')}}
+                            <label for="nome-input">Nome do Usuário:</label>
+                        </div>
+
+                        <div class="md-form">
+                            {{form.usuario_sobrenome(class_='form-control', id='sobrenome-input')}}
+                            <label for="sobrenome-input">Sobrenome: </label>
+                        </div>
+
+                        <div class="md-form">
                             {{form.usuario_login(class_='form-control', id='login-input')}}
-                            <label for="login-input">Login do Usuário</label>
+                            <label for="login-input">Login: </label>
+                        </div>
+
+                        <div class="md-form">
+                            {{form.usuario_idade(class_='form-control', id='idade-input')}}
+                            <label for="idade-input">Idade: </label>
+                        </div>
+
+                        <div class="md-form">
+                            {{form.usuario_sexo(class_='form-control', id='sexo-input')}}
+                            <label for="sexo-input">Sexo: </label>
                         </div>
 
                         <div class="md-form">
@@ -43,6 +63,12 @@
                             {{form.usuario_senha(class_='form-control', id='password-input')}}
                             <label for="password-input">Senha</label>
                         </div>
+
+                        <div class="md-form">
+                            {{form.usuario_celular(class_='form-control', id='celular-input')}}
+                            <label for="celular-input">Número de celular: </label>
+                        </div>
+
 						<div class="md-form">
                             {{form.usuario_descricao(class_='form-control', id='login-input')}}
                             <label for="descriçao-input">Biografia</label>
