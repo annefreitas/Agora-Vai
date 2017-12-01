@@ -5,15 +5,16 @@ from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
 from ...utils.foundanies_modelo import FoundaniesModelo
 from ...utils.files import flash_errors_extensao
+from ...authentication import retorna_usuario
 from ...cursor import db
 
 from app import app
 
 class UsuarioEditarNegocio:
-    def exibir(user_id):
+    def exibir():
         form = EditarUsuarioForm()
 
-        usuario = Usuario(user_id)
+        usuario = retorna_usuario()
         if usuario.get_id() is None:
             return redirect(url_for('home'))
 
