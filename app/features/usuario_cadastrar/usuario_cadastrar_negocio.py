@@ -48,7 +48,7 @@ class UsuarioCadastrarNegocio:
                 
             enviar_email_confirmacao(usuario)
 
-            return redirect(url_for('usuario_listar'))
+            return redirect(url_for('us'))
 
         else:
             flash_errors(form)
