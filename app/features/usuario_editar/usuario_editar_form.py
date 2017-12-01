@@ -13,5 +13,5 @@ class EditarUsuarioForm(Form):
     usuario_sobrenome = StringField('Informe seu sobrenome', validators=[DataRequired('Seu sobrenome é obrigatório')])
     usuario_sexo = StringField('Informe seu sexo', validators=[DataRequired('Seu sexo é obrigatório')])
     usuario_idade = StringField('Informe sua idade', validators=[DataRequired('Idade é obrigatória')])
-    usuario_celular = IntegerField('Informe o nº do seu celular', validators=[DataRequired('Nº de celular é obrigatório')])
+    usuario_celular = IntegerField('Informe um nº de celular valido', validators=[DataRequired('Informe um nº de celular valido')])
     file = FileField('Foto do Usuário', validators=[])
